@@ -1,7 +1,9 @@
 import { STATUS_CODES } from 'node:http';
 
 export function POST() {
-	if (!process.env.vercelVerify) {
+	const secret = process.env.VERCEL_VERIFY;
+
+	if (!secret) {
 		return new Response(null, {
 			status: 500,
 			statusText: STATUS_CODES[500],
@@ -9,7 +11,7 @@ export function POST() {
 	}
 
 	const headers = new Headers({
-		'x-vercel-verify': process.env.vercelVerify,
+		'x-vercel-verify': secret,
 	});
 
 	return new Response(null, { headers });
