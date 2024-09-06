@@ -1,3 +1,3 @@
 export default function Home() {
-  return 'lol';
+	return 'lol';
 }

@@ -1,4 +1,4 @@
-import { STATUS_CODES } from "node:http";
+import { STATUS_CODES } from 'node:http';
 
 export function POST() {
 	if (!process.env.vercelVerify) {
@@ -9,7 +9,7 @@ export function POST() {
 	}
 
 	const headers = new Headers({
-		"x-vercel-verify": process.env.vercelVerify,
+		'x-vercel-verify': process.env.vercelVerify,
 	});
 
 	return new Response(null, { headers });
